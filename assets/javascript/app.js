@@ -2,7 +2,7 @@
 // #4 When the user clicks one of the still GIPHY images, the gif should animate. If the user clicks the gif again, it should stop playing.
 // #6 Add a form to your page takes the value from a user input box and adds it into your topics array. Then make a function call that takes each topic in the array remakes the buttons on the page.
 
-var aTopics = ["fail", "yeet", "Jeep", "fat", "haters", "memes", ];
+var aTopics = ["funny", "popular", "trending", "fail", "yeet", "jeep", "fat", "haters", "memes", ];
 $(document).ready(function () {
 //======================================================================
 // functions
@@ -24,14 +24,14 @@ function onLoad(){
 function displayGifs() {
     var gifs = $(this).attr("data-name");
     // console.log("displayGifs" + JSON.stringify($(this)));
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gifs + "&limit=10"+ "&api_key=FVAZwtJAqZB4l8xC0kg6lkJ1hP8m9NFI";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gifs + "&limit=10"+  "&api_key=FVAZwtJAqZB4l8xC0kg6lkJ1hP8m9NFI";
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function (res) {
             for(var i =0 ; i<res.data.length; i++){
-            var newDiv = $("<div>")
-            var newImg = $("<img>");
+            var newDiv = $("<div class='col-12 col-sm-6 col-md-4 mx-auto'>")
+            var newImg = $("<img width='auto' height='200px'>");
             var newP = $("<p>")
             newP.text("Rating: " + res.data[i].rating)
             newImg.attr("src", res.data[i].images.original_still.url).attr("state","still").attr("class","jif").attr("data-animate", res.data[i].images.fixed_height.url).attr("data-still", res.data[i].images.original_still.url);
@@ -42,11 +42,12 @@ function displayGifs() {
 }
 // user adds a new topic
 function newTopic(){
-    var sInputValue= $(".form-control").val();
-    if(sInputValue===""){
+    var sInputValue= $(".form-control").val()
+    var sLowerCaseInputValue = sInputValue.toLowerCase();
+    if(sLowerCaseInputValue ===""){
         return;
     }else{
-    aTopics.push(sInputValue);
+    aTopics.push(sLowerCaseInputValue);
     }
 }
 //=============================================================================================
@@ -73,6 +74,7 @@ onLoad();
     $(document).on("click", "#button-addon2", function(){
     event.preventDefault();
     newTopic();
+    $(".form-control").val("");
     onLoad();
 });
   

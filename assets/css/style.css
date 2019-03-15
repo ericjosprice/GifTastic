@@ -1,5 +1,22 @@
 body{
-    background:lightblue;
+    background: url(../images/photo-1533035353720-f1c6a75cd8ab.jpeg);
     padding:10px 10px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width:100%;
+    height: auto;
+
+    margin:0;
+
+}
+p{
+    font-size: 16px;
+    line-height: 1.5rem;
+    font-weight: 700;
+}
+label{
+    font-size: 16px;
+    line-height: 1.6rem;
+    font-weight: bold;
 }
 
