@@ -30,8 +30,8 @@ function displayGifs() {
         method: "GET"
     }).then(function (res) {
             for(var i =0 ; i<res.data.length; i++){
-            var newDiv = $("<div class='col-12 col-sm-6 col-md-4 mx-auto'>")
-            var newImg = $("<img width='auto' height='200px'>");
+            var newDiv = $("<div id='card' class='col-12 col-sm-6 col-md-4 mx-auto'>")
+            var newImg = $("<img class='mx-auto' width='auto' height='200px'>");
             var newP = $("<p>")
             newP.text("Rating: " + res.data[i].rating)
             newImg.attr("src", res.data[i].images.original_still.url).attr("state","still").attr("class","jif").attr("data-animate", res.data[i].images.fixed_height.url).attr("data-still", res.data[i].images.original_still.url);
