@@ -1,6 +1,11 @@
 # GifTastic
 API gif app
 
+
+deployed site: https://ericjosprice.github.io/GifTastic/
+
+view source code at: https://github.com/ericjosprice/GifTastic.git
+
 GIf Tastic is an API for gify's gif, pronounced "JIF", library. users can view gifs of a particular category using gif tastic
 gify API
 
